@@ -3,6 +3,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -10,6 +11,19 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter({ logger: true }),
   );
-  await app.listen(3000, '0.0.0.0');
+
+  // Setup swagger ui
+  const swaggerConfig = new DocumentBuilder()
+    .setTitle('CoffeeBucks')
+    .setDescription('API for CoffeeBucks application')
+    .setVersion('1.0')
+    .addTag('Coffee')
+    .build();
+  const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
+  SwaggerModule.setup('api/docs', app, swaggerDocument);
+
+  const port = process.env.PORT || 3000;
+
+  await app.listen(port, '0.0.0.0');
 }
 bootstrap();
