@@ -16,7 +16,7 @@ import { UsersModule } from './users/users.module';
   imports: [
     ConfigModule.forRoot({
       validationSchema: validationSchema,
-      envFilePath: `/env/.env.${process.env.NODE_ENV}`,
+      envFilePath: `env/.env.${process.env.NODE_ENV}`,
       isGlobal: true,
     }),
 
