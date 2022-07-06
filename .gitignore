@@ -1,5 +1,6 @@
 # Application specific files
-*.env
+# The following line should be commented but not done as .env.local is only available right now.
+# .env.*
 
 # compiled output
 /dist

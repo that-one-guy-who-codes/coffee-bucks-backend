@@ -1,4 +1,5 @@
 import { Controller } from '@nestjs/common';
 
-@Controller('users')
+// api/v1/users prefix for all routes inside.
+@Controller({ path: 'users', version: '1' })
 export class UsersController {}
