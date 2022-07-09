@@ -5,6 +5,7 @@ import validationSchema from 'env/validation.schema';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 /**
  * ConfigModule - Import the validation schema we wrote and the path to the env file.
@@ -30,6 +31,7 @@ import { UsersModule } from './users/users.module';
       entities: [],
     }),
     UsersModule,
+    AuthModule,
   ],
 
   controllers: [AppController],

@@ -11,6 +11,7 @@ let validationSchema = Joi.object({
   DATABASE_HOST: Joi.string(),
   DATABASE: Joi.string(),
   PORT: Joi.number().default(8080),
+  JWT_SECRET: Joi.string(),
 });
 
 export default validationSchema;
